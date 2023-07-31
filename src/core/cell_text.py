@@ -3,6 +3,7 @@ from src.core.color import Color, BLACK
 
 class CellText:
     def __init__(self, value: str):
+        self.id: any = None
         self.font_name: str = "Helvetica"
         self.font_size: int = 20
         self.color: Color = BLACK
