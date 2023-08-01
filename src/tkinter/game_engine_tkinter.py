@@ -4,6 +4,7 @@ from src.core.color import BLUE, Color
 from src.core.game import Game
 from src.core.game_engine import GameEngine
 from src.tkinter.cell_tkinter import CellTkinter
+from src.tkinter.message_tkinter import MessageTkinter
 
 
 class GameEngineTkinter(GameEngine):
@@ -15,7 +16,7 @@ class GameEngineTkinter(GameEngine):
 
         self.grid: list[CellTkinter] = []
         self.grid_line_id = []
-        self.message_id: int | None = None
+        self.message: MessageTkinter | None = None
 
         self.__root = tk.Tk()
         self.__canvas: tk.Canvas | None = None
@@ -39,6 +40,7 @@ class GameEngineTkinter(GameEngine):
 
         self.__canvas.delete("All")
 
+        self.grid = []
         for y in range(self.height):
             for x in range(self.width):
                 self.grid.append(CellTkinter(x, y))
@@ -89,11 +91,15 @@ class GameEngineTkinter(GameEngine):
             self.__canvas.delete(cell.canvas_text)
 
     def draw_message(self, text: str):
-        pass
+        self.message = MessageTkinter(
+            x=self.width_px / 2,
+            y=self.height_px / 2,
+            text=text
+        )
 
     def remove_message(self):
-        if self.message_id is not None:
-            self.__canvas.delete(self.message_id)
+        if self.message is not None:
+            self.__canvas.delete(self.message.canvas_id)
 
     def on_turn(self):
         super().on_turn()
