@@ -7,4 +7,5 @@ class Color:
 
 BLUE = Color("blue")
 GREEN = Color("green")
+RED = Color("red")
 BLACK = Color("black")

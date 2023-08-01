@@ -1,10 +1,9 @@
-from src.core.game_engine_tkinter import GameEngineTkinter
 from src.example.simple_game import SimpleGame
-from src.example.tic_tac_toe_game import TicTacToeGame
+from src.tkinter.game_engine_tkinter import GameEngineTkinter
 
 
 def main():
-    GameEngineTkinter(TicTacToeGame()).initialize()
+    GameEngineTkinter(SimpleGame()).initialize()
 
 
 if __name__ == '__main__':

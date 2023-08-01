@@ -4,7 +4,6 @@ from src.core.color import Color
 
 class Cell:
     def __init__(self, x: int, y: int):
-        self.id: any = None
         self.x: int = x
         self.y: int = y
         self.color: Color | None = None
