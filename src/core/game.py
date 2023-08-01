@@ -37,14 +37,20 @@ class Game(ABC):
         cell: Cell = self.__game_engine.get_cell(self.__game_engine.get_index(x, y))
         return cell.get_text()
 
-    @abstractmethod
+    def set_turn_timer(self, interval_ms: int):
+        self.__game_engine.set_turn_timer(interval_ms)
+
+    def stop_turn_timer(self):
+        self.__game_engine.stop_turn_timer()
+
+    def on_turn(self, step: int):
+        pass
+
     def on_left_click(self, x: int, y: int):
         pass
 
-    @abstractmethod
     def on_right_click(self, x: int, y: int):
         pass
 
-    @abstractmethod
     def on_key_press(self, char: str, keycode: int):
         pass

@@ -10,6 +10,8 @@ class SimpleGame(Game):
 
         self.set_cell(0, 0, text="W", color=BLACK)
 
+        self.set_turn_timer(1000)
+
     def on_left_click(self, x: int, y: int):
         self.set_cell(x, y, text="X", color=GREEN)
 
@@ -18,3 +20,12 @@ class SimpleGame(Game):
 
     def on_key_press(self, char: str, keycode: int):
         pass
+
+    def on_turn(self, step: int):
+        if step % 2 == 0:
+            self.set_cell(1, 1, text="X", color=GREEN)
+        else:
+            self.set_cell(1, 1, text="0", color=RED)
+
+        if step == 10:
+            self.stop_turn_timer()

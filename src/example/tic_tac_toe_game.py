@@ -11,6 +11,3 @@ class TicTacToeGame(Game):
 
     def on_right_click(self, x: int, y: int):
         self.set_cell(x, y, text="0")
-
-    def on_key_press(self, char: str, keycode: int):
-        pass

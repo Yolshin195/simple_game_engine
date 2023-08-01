@@ -22,6 +22,10 @@ class GameEngine(ABC):
 
         self.grid: list[Cell] = []
 
+        self.is_active_timer = False
+        self.interval_ms_timer = 1000
+        self.step_timer = 0
+
     def initialize(self):
         self.game.set_game_engine(self)
         self.game.initialize()
@@ -65,6 +69,16 @@ class GameEngine(ABC):
             for x in range(self.width):
                 self.grid.append(Cell(x, y))
 
+    def set_turn_timer(self, interval_ms: int):
+        self.interval_ms_timer = interval_ms
+        self.is_active_timer = True
+
+        self.on_turn()
+
+    def stop_turn_timer(self):
+        self.is_active_timer = False
+        self.step_timer = 0
+
     @abstractmethod
     def draw_grid_line(self):
         pass
@@ -96,6 +110,11 @@ class GameEngine(ABC):
     @abstractmethod
     def remove_message(self):
         pass
+
+    @abstractmethod
+    def on_turn(self):
+        self.game.on_turn(self.step_timer)
+        self.step_timer += 1
 
     @abstractmethod
     def on_left_click(self, event):

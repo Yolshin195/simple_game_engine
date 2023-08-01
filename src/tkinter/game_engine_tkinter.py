@@ -95,6 +95,12 @@ class GameEngineTkinter(GameEngine):
         if self.message_id is not None:
             self.__canvas.delete(self.message_id)
 
+    def on_turn(self):
+        super().on_turn()
+
+        if self.is_active_timer:
+            self.__canvas.after(self.interval_ms_timer, self.on_turn)
+
     def on_left_click(self, event: tk.Event):
         self.game.on_left_click(event.x // self.cell_size_px,
                                 event.y // self.cell_size_px)
