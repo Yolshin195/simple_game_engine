@@ -73,7 +73,8 @@ class GameEngine(ABC):
         self.interval_ms_timer = interval_ms
         self.is_active_timer = True
 
-        self.on_turn()
+        if self.step_timer == 0:
+            self.on_turn()
 
     def stop_turn_timer(self):
         self.is_active_timer = False
@@ -113,8 +114,12 @@ class GameEngine(ABC):
 
     @abstractmethod
     def on_turn(self):
-        self.game.on_turn(self.step_timer)
+        """
+        Must be added to the override function: super().on_turn()
+        :return:
+        """
         self.step_timer += 1
+        self.game.on_turn(self.step_timer)
 
     @abstractmethod
     def on_left_click(self, event):

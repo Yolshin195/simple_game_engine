@@ -9,8 +9,9 @@ class SimpleGame(Game):
         self.show_grid(True)
 
         self.set_cell(0, 0, text="W", color=BLACK)
+        self.time_turn_ms = 1000
 
-        self.set_turn_timer(1000)
+        self.set_turn_timer(self.time_turn_ms)
 
     def on_left_click(self, x: int, y: int):
         self.set_cell(x, y, text="X", color=GREEN)
@@ -22,10 +23,12 @@ class SimpleGame(Game):
         pass
 
     def on_turn(self, step: int):
+        self.time_turn_ms -= 30
+        self.set_turn_timer(self.time_turn_ms)
         if step % 2 == 0:
             self.set_cell(1, 1, text="X", color=GREEN)
         else:
             self.set_cell(1, 1, text="0", color=RED)
 
-        if step == 10:
+        if step == 30:
             self.stop_turn_timer()

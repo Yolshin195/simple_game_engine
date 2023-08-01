@@ -44,7 +44,10 @@ class Game(ABC):
         self.__game_engine.stop_turn_timer()
 
     def on_turn(self, step: int):
-        pass
+        """
+        :param step: step counting starts from one
+        :return: None
+        """
 
     def on_left_click(self, x: int, y: int):
         pass
