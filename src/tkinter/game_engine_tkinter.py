@@ -91,15 +91,30 @@ class GameEngineTkinter(GameEngine):
             self.__canvas.delete(cell.canvas_text)
 
     def draw_message(self, text: str):
-        self.message = MessageTkinter(
-            x=self.width_px / 2,
-            y=self.height_px / 2,
-            text=text
-        )
+        if self.message is not None:
+            return
+
+        self.message = MessageTkinter(text)
+
+        x1 = 0
+        x2 = self.width_px
+        y1 = self.height_px / 2 - self.cell_size_px / 2
+        y2 = self.height_px / 2 + self.cell_size_px / 2
+        self.message.rectangle_id = self.__canvas.create_rectangle(x1, y1, x2, y2,
+                                                                   fill=self.message.background.value)
+
+        self.message.text_id = self.__canvas.create_text(self.width_px / 2, self.height_px / 2,
+                                                         text=self.message.text.get_text(),
+                                                         font=self.message.text.get_font(),
+                                                         fill=self.message.text.get_color())
+
+        self.__canvas.after(self.message.remove_ms, self.remove_message)
 
     def remove_message(self):
         if self.message is not None:
-            self.__canvas.delete(self.message.canvas_id)
+            self.__canvas.delete(self.message.rectangle_id)
+            self.__canvas.delete(self.message.text_id)
+            self.message = None
 
     def on_turn(self):
         super().on_turn()
