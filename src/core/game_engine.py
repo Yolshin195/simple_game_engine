@@ -13,7 +13,6 @@ class GameEngine(ABC):
     def __init__(self, game: 'Game'):
         self.game: 'Game' = game
         self.title = "Game Engine!"
-        self.is_game_running = False
         self.width = 3
         self.height = 3
 
