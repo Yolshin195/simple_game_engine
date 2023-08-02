@@ -5,7 +5,8 @@ class Color:
         self.value = value
 
 
+BLACK = Color("black")
+WHITE = Color("white")
 BLUE = Color("blue")
 GREEN = Color("green")
 RED = Color("red")
-BLACK = Color("black")

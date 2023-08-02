@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 from src.core.cell import Cell
 from src.core.color import Color
+from src.core.message import Message
 
 if TYPE_CHECKING:
     from src.core.game import Game
@@ -12,7 +13,6 @@ class GameEngine(ABC):
     def __init__(self, game: 'Game'):
         self.game: 'Game' = game
         self.title = "Game Engine!"
-        self.is_game_running = False
         self.width = 3
         self.height = 3
 
@@ -21,6 +21,7 @@ class GameEngine(ABC):
         self.height_px = 300
 
         self.grid: list[Cell] = []
+        self.message: Message | None = None
 
         self.is_active_timer = False
         self.interval_ms_timer = 1000
@@ -65,6 +66,7 @@ class GameEngine(ABC):
         return y * self.width + x
 
     def update_grid(self):
+        self.grid = []
         for y in range(self.height):
             for x in range(self.width):
                 self.grid.append(Cell(x, y))

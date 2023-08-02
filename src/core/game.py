@@ -26,6 +26,9 @@ class Game(ABC):
     def show_grid(self, flag: bool):
         self.__game_engine.show_grid(flag)
 
+    def show_message(self, text: str):
+        self.__game_engine.draw_message(text)
+
     def set_cell(self, x: int, y: int, color=None, text=None):
         self.__game_engine.set_cell(x, y, color=color, text=text)
 

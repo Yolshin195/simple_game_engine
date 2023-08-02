@@ -1,4 +1,4 @@
-from src.core.cell_text import CellText
+from src.core.text import Text
 from src.core.color import Color
 
 
@@ -7,13 +7,13 @@ class Cell:
         self.x: int = x
         self.y: int = y
         self.color: Color | None = None
-        self.value: CellText | None = None
+        self.value: Text | None = None
 
     def set_text(self, value):
         if self.value:
             self.value.value = value
         else:
-            self.value = CellText(value)
+            self.value = Text(value)
 
     def get_text(self):
         return self.value
