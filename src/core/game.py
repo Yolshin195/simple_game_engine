@@ -20,8 +20,8 @@ class Game(ABC):
     def set_title(self, title: str):
         self.__game_engine.title = title
 
-    def set_screen_size(self, width: int, height: int):
-        self.__game_engine.set_screen_size(width, height)
+    def set_screen_size(self, width: int, height: int, cell_size_px=None):
+        self.__game_engine.set_screen_size(width, height, cell_size_px)
 
     def show_grid(self, flag: bool):
         self.__game_engine.show_grid(flag)
@@ -29,8 +29,8 @@ class Game(ABC):
     def show_message(self, text: str):
         self.__game_engine.draw_message(text)
 
-    def set_cell(self, x: int, y: int, color=None, text=None):
-        self.__game_engine.set_cell(x, y, color=color, text=text)
+    def set_cell(self, x: int, y: int, color=None, text=None, text_color=None):
+        self.__game_engine.set_cell(x, y, color=color, text=text, text_color=text_color)
 
     def get_cell_color(self, x: int, y: int) -> Color:
         cell: Cell = self.__game_engine.get_cell(self.__game_engine.get_index(x, y))

@@ -74,10 +74,10 @@ class GameEngineTkinter(GameEngine):
         if cell.canvas_rectangle is not None:
             self.__canvas.delete(cell.canvas_rectangle)
 
-    def draw_cell_text(self, cell: CellTkinter, text: str):
+    def draw_cell_text(self, cell: CellTkinter, text: str, text_color=None):
         self.remove_cell_text(cell)
 
-        cell.set_text(text)
+        cell.set_text(text, text_color)
 
         x = (self.cell_size_px * cell.x) + self.cell_size_px / 2
         y = (self.cell_size_px * cell.y) + self.cell_size_px / 2

@@ -31,9 +31,12 @@ class GameEngine(ABC):
         self.game.set_game_engine(self)
         self.game.initialize()
 
-    def set_screen_size(self, width: int, height: int):
+    def set_screen_size(self, width: int, height: int, cell_size_px=None):
         self.width = width
         self.height = height
+
+        if cell_size_px is not None:
+            self.cell_size_px = cell_size_px
 
         self.width_px = self.width * self.cell_size_px
         self.height_px = self.height * self.cell_size_px
@@ -52,12 +55,12 @@ class GameEngine(ABC):
         else:
             self.remove_grid_line()
 
-    def set_cell(self, x: int, y: int, color: Color = None, text=None):
+    def set_cell(self, x: int, y: int, color: Color = None, text=None, text_color=None):
         cell = self.get_cell(self.get_index(x, y))
         if color is not None:
             self.draw_cell_color(cell, color)
         if text is not None:
-            self.draw_cell_text(cell, text)
+            self.draw_cell_text(cell, text, text_color)
 
     def get_cell(self, index: int) -> Cell:
         return self.grid[index]
@@ -99,7 +102,7 @@ class GameEngine(ABC):
         pass
 
     @abstractmethod
-    def draw_cell_text(self, cell: Cell, text: str):
+    def draw_cell_text(self, cell: Cell, text: str, text_color=None):
         pass
 
     @abstractmethod
