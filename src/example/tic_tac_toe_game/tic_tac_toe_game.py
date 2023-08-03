@@ -9,11 +9,11 @@ import time
 class TicTacToeGame(Game):
     users = USER_X, USER_O
     player_turn = None
+    is_game = False
+    is_loop = False
     step = 0
     width = 3
     height = 3
-    is_game = False
-    is_loop = False
     map: Map
 
     def initialize(self):
@@ -25,12 +25,12 @@ class TicTacToeGame(Game):
         self.start()
 
     def start(self):
-        self.select_first_player()
         self.is_game = True
         self.step = 0
 
         self.clear_map()
         self.map = Map(self.width, self.height)
+        self.select_first_player()
 
     def loop(self):
         winning_combination = self.map.find_winning_combination()
@@ -61,9 +61,11 @@ class TicTacToeGame(Game):
     def on_left_click(self, x: int, y: int):
         if self.is_game:
             self.is_loop = True
-            self.set_cell(x, y, text=self.get_current_player().label)
-            self.map.set(x, y, self.get_current_player().label)
-            self.loop()
+            if self.map.set(x, y, self.get_current_player().label):
+                self.set_cell(x, y, text=self.get_current_player().label)
+                self.loop()
+            else:
+                self.show_message("Choose another cell")
             self.is_loop = False
         else:
             self.show_message("Press 'R' for restart")

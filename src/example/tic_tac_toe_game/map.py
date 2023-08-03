@@ -38,8 +38,13 @@ class Map:
         combination = [cell[2] for cell in combination]
         return len(set(combination)) == 1 and not (None in combination)
 
-    def set(self, x: int, y: int, label: str):
-        self.value[self.__get_index(x, y)][2] = label
+    def set(self, x: int, y: int, label: str) -> bool:
+        cell = self.value[self.__get_index(x, y)]
+        if cell[2] is None:
+            cell[2] = label
+            return True
+
+        return False
 
     def __get_index(self, x: int, y: int) -> int:
         return y * self.width + x
