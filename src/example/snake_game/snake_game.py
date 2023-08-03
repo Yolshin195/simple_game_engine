@@ -64,8 +64,7 @@ class SnakeGame(Game):
 
     def on_key_press(self, char: str, keycode: int):
         if keycode == 82:
-            self.is_pause = False
-            self.stop_turn_timer()
+            self.is_game = False
             self.start()
             return
 
