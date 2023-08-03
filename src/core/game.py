@@ -1,3 +1,5 @@
+import random
+import time
 from abc import ABC, abstractmethod
 
 from src.core.cell import Cell
@@ -9,6 +11,8 @@ class Game(ABC):
 
     def __init__(self):
         self.__game_engine: GameEngine | None = None
+
+        random.seed(time.time())
 
     def set_game_engine(self, game_engine: GameEngine):
         self.__game_engine = game_engine
@@ -60,3 +64,7 @@ class Game(ABC):
 
     def on_key_press(self, char: str, keycode: int):
         pass
+
+    @staticmethod
+    def get_random_number(begin: int, end: int) -> int:
+        return random.randint(begin, end)
