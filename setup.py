@@ -8,4 +8,5 @@ setup(
     install_requires=[
         # Зависимости вашей библиотеки
     ],
+    url="https://github.com/Yolshin195/simple_game_engine",
 )
