@@ -3,8 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='yg-simple-game-engine',
     version='0.1',
-    package_dir={'': 'src'},
-    packages=find_packages('src'),
+    packages=find_packages(),
     install_requires=[
         # Зависимости вашей библиотеки
     ],

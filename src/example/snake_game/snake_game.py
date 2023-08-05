@@ -21,9 +21,10 @@ class SnakeGame(Game):
         self.start()
 
     def start(self):
+        self.stop_turn_timer()
         self.clear_map()
-        self.spawn_apple()
         self.snake = Snake()
+        self.spawn_apple()
 
         self.snake.draw(self.draw_point)
 
@@ -55,7 +56,12 @@ class SnakeGame(Game):
 
         x = self.get_random_number(0, 8)
         y = self.get_random_number(0, 8)
-        self.apple = Apple(x, y).draw(self.draw_point)
+
+        apple = Apple(x, y)
+        if self.snake == apple:
+            self.spawn_apple()
+        else:
+            self.apple = apple.draw(self.draw_point)
 
     def clear_map(self):
         for x in range(self.width):
