@@ -1,5 +1,5 @@
-from src.core.text import Text
-from src.core.color import Color
+from ygame.core.text import Text
+from ygame.core.color import Color
 
 
 class Cell:

@@ -1,5 +1,5 @@
-from src.core.color import GREEN, RED
-from src.core.game import Game
+from ygame.core.color import GREEN, RED
+from ygame.core.game import Game
 
 
 class SimpleGame(Game):

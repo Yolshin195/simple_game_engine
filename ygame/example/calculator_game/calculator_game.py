@@ -1,6 +1,6 @@
-from src.core.color import GREEN
-from src.core.game import Game
-from src.example.calculator_game.variable import Variable
+from ygame.core.color import GREEN
+from ygame.core.game import Game
+from ygame.example.calculator_game.variable import Variable
 
 
 class CalculatorGame(Game):

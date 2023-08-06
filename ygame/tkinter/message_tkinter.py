@@ -1,5 +1,5 @@
-from src.core.color import Color, BLACK, WHITE
-from src.core.message import Message
+from ygame.core.color import Color, BLACK, WHITE
+from ygame.core.message import Message
 
 
 class MessageTkinter(Message):

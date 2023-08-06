@@ -1,4 +1,4 @@
-from src.core.color import Color, BLACK
+from ygame.core.color import Color, BLACK
 
 
 class Text:

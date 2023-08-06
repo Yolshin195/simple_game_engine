@@ -1,4 +1,4 @@
-from src.example.snake_game.point import Point
+from ygame.example.snake_game.point import Point
 
 UP = Point(x=0, y=-1)
 DOWN = Point(x=0, y=1)

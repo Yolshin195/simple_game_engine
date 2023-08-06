@@ -2,9 +2,9 @@ import random
 import time
 from abc import ABC, abstractmethod
 
-from src.core.cell import Cell
-from src.core.color import Color
-from src.core.game_engine import GameEngine
+from ygame.core.cell import Cell
+from ygame.core.color import Color
+from ygame.core.game_engine import GameEngine
 
 
 class Game(ABC):

@@ -1,5 +1,5 @@
-from src.core.color import RED
-from src.example.snake_game.point import Point
+from ygame.core.color import RED
+from ygame.example.snake_game.point import Point
 
 
 class Apple(Point):

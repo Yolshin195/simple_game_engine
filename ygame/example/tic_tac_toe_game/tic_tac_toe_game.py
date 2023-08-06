@@ -1,7 +1,7 @@
-from src.core.color import GREEN, WHITE
-from src.core.game import Game
-from src.example.tic_tac_toe_game.map import Map
-from src.example.tic_tac_toe_game.user import USER_X, USER_O, User
+from ygame.core.color import GREEN, WHITE
+from ygame.core.game import Game
+from ygame.example.tic_tac_toe_game.map import Map
+from ygame.example.tic_tac_toe_game.user import USER_X, USER_O, User
 import random
 import time
 

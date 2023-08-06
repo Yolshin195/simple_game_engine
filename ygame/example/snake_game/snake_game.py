@@ -1,9 +1,9 @@
-from src.core.color import WHITE
-from src.core.game import Game
-from src.example.snake_game.apple import Apple
-from src.example.snake_game.direction import direction
-from src.example.snake_game.point import Point
-from src.example.snake_game.snake import Snake
+from ygame.core.color import WHITE
+from ygame.core.game import Game
+from ygame.example.snake_game.apple import Apple
+from ygame.example.snake_game.direction import direction
+from ygame.example.snake_game.point import Point
+from ygame.example.snake_game.snake import Snake
 
 
 class SnakeGame(Game):

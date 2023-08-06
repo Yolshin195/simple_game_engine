@@ -1,7 +1,7 @@
 from typing import Callable
 
-from src.core.color import BLACK
-from src.example.snake_game.point import Point
+from ygame.core.color import BLACK
+from ygame.example.snake_game.point import Point
 
 
 class Snake:

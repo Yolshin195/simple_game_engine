@@ -1,7 +1,7 @@
 from abc import ABC
 
-from src.core.color import Color, WHITE, BLACK
-from src.core.text import Text
+from ygame.core.color import Color, WHITE, BLACK
+from ygame.core.text import Text
 
 
 class Message(ABC):

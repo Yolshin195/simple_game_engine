@@ -1,10 +1,10 @@
 import tkinter as tk
 
-from src.core.color import BLUE, Color
-from src.core.game import Game
-from src.core.game_engine import GameEngine
-from src.tkinter.cell_tkinter import CellTkinter
-from src.tkinter.message_tkinter import MessageTkinter
+from ygame.core.color import BLUE, Color
+from ygame.core.game import Game
+from ygame.core.game_engine import GameEngine
+from ygame.tkinter.cell_tkinter import CellTkinter
+from ygame.tkinter.message_tkinter import MessageTkinter
 
 
 class GameEngineTkinter(GameEngine):

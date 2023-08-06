@@ -1,5 +1,5 @@
-from src.core.cell import Cell
-from src.core.color import Color
+from ygame.core.cell import Cell
+from ygame.core.color import Color
 
 
 class CellTkinter(Cell):

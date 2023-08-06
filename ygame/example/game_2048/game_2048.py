@@ -1,4 +1,4 @@
-from src.core.game import Game
+from ygame.core.game import Game
 
 
 class Game2048(Game):

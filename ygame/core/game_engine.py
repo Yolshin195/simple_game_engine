@@ -1,12 +1,12 @@
 from typing import TYPE_CHECKING
 from abc import ABC, abstractmethod
 
-from src.core.cell import Cell
-from src.core.color import Color
-from src.core.message import Message
+from ygame.core.cell import Cell
+from ygame.core.color import Color
+from ygame.core.message import Message
 
 if TYPE_CHECKING:
-    from src.core.game import Game
+    from ygame.core.game import Game
 
 
 class GameEngine(ABC):
