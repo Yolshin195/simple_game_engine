@@ -1,8 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='yg-simple-game-engine',
+    name='ygsge',
     version='0.1',
+    package_dir={
+        "ygsge": "src",
+        "ygsge.core": "src/core",
+        "ygsge.example": "src/example",
+        "ygsge.tkinter": "src/tkinter"
+    },
     packages=find_packages(),
     install_requires=[
         # Зависимости вашей библиотеки
