@@ -1,7 +1,35 @@
-from setuptools import setup, find_namespace_packages
+# This file is part of ygame.
+#
+# ygame is free software: you can redistribute it and/or modify
+# it under the terms of the MIT License as published by the Massachusetts
+# Institute of Technology. See the LICENSE.txt file for more details.
+
+from setuptools import setup, find_packages
+
+
+def readme():
+    with open('README.md', 'r') as f:
+        return f.read()
+
 
 setup(
     name="ygame",
-    version="0.1",
-    packages=find_namespace_packages()
+    version="1.0.0",
+    description="Your Game (ygame) is simple game engine, using cells to draw the playing field",
+    long_description=readme(),
+    long_description_content_type='text/markdown',
+    url="https://github.com/Yolshin195/ygame",
+    packages=find_packages(),
+    author_email="elshin195@gmail.com",
+    keywords='simple cell game python',
+    zip_safe=False,
+    project_urls={
+        'Documentation': 'https://github.com/Yolshin195/ygame/tree/main/docs'
+    },
+    classifiers=[
+        'Programming Language :: Python :: 3.11',
+        'License :: OSI Approved :: MIT License',
+        'Operating System :: OS Independent'
+    ],
+    python_requires='>=3.11',
 )
