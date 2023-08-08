@@ -8,13 +8,13 @@ from setuptools import setup, find_packages
 
 
 def readme():
-    with open('README.md', 'r') as f:
+    with open('README.md', 'r', encoding="utf-8") as f:
         return f.read()
 
 
 setup(
     name="ygame",
-    version="1.0.0",
+    version="1.0.2",
     description="Your Game (ygame) is simple game engine, using cells to draw the playing field",
     long_description=readme(),
     long_description_content_type='text/markdown',
