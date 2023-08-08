@@ -14,12 +14,12 @@ def readme():
 
 setup(
     name="ygame",
-    version="1.0.2",
+    version="1.0.3",
     description="Your Game (ygame) is simple game engine, using cells to draw the playing field",
     long_description=readme(),
     long_description_content_type='text/markdown',
     url="https://github.com/Yolshin195/ygame",
-    packages=find_packages(),
+    packages=['ygame'],
     author_email="elshin195@gmail.com",
     keywords='simple cell game python',
     zip_safe=False,
@@ -31,5 +31,6 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent'
     ],
+    license='MIT',
     python_requires='>=3.11',
 )
