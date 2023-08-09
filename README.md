@@ -32,6 +32,20 @@ class SimpleGame(Game):
 
 ```
 
+### launch
+```python
+from ygame.example.simple_game.simple_game import SimpleGame
+from ygame.tkinter.game_engine_tkinter import GameEngineTkinter
+
+
+def main():
+    GameEngineTkinter(SimpleGame()).initialize()
+
+
+if __name__ == "__main__":
+    main()
+```
+
 ## Methods for Game
 
 ```python
