@@ -4,6 +4,34 @@
 Your Game (ygame) is simple game engine for start learning programming. 
 The playing field consists of cells
 
+## Installation
+```commandline
+    pip install ygame
+```
+
+## Hello, world!
+```python
+from ygame.core.color import GREEN, RED
+from ygame.core.game import Game
+
+
+class SimpleGame(Game):
+    def initialize(self):
+        self.set_title("Simple Game!")
+        self.set_screen_size(3, 3)
+        self.show_grid(True)
+
+        self.set_turn_timer(500)
+
+    def on_turn(self, step: int):
+        color = GREEN if step % 2 == 0 else RED
+        self.set_cell(1, 1, text=step, color=color)
+
+        if step == 10:
+            self.stop_turn_timer()
+
+```
+
 ## Methods for Game
 
 ```python
@@ -69,4 +97,5 @@ class Game(ABC):
 3. [2048 Game](/ygame/example/game_2048/README.md)
 
 
+## License
 This project is licensed under the MIT License. See [LICENSE.txt](LICENSE.txt) for details.
