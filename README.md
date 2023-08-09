@@ -47,6 +47,7 @@ if __name__ == "__main__":
 ```
 
 ## Methods for Game
+The game class is the main class that you will interact with in order to create simple games.
 
 ```python
 from abc import ABC, abstractmethod
