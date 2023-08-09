@@ -32,7 +32,7 @@ class SimpleGame(Game):
 
 ```
 
-### launch
+### Launch
 ```python
 from ygame.example.simple_game.simple_game import SimpleGame
 from ygame.tkinter.game_engine_tkinter import GameEngineTkinter
