@@ -11,14 +11,14 @@ from ygame.core.game import Game
 class SimpleGame(Game):
     def initialize(self):
         self.set_title("Simple Game!")
-        self.set_screen_size(7, 5)
+        self.set_screen_size(3, 3)
         self.show_grid(True)
 
-    def on_left_click(self, x: int, y: int):
-        self.set_cell(x, y, text="X", color=GREEN)
+        self.set_turn_timer(500)
 
-    def on_right_click(self, x: int, y: int):
-        self.set_cell(x, y, text="0", color=RED)
+    def on_turn(self, step: int):
+        color = GREEN if step % 2 == 0 else RED
+        self.set_cell(1, 1, text=step, color=color)
 
-    def on_key_press(self, char: str, keycode: int):
-        self.show_message(f'You press: {char}')
+        if step == 10:
+            self.stop_turn_timer()
