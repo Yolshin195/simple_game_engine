@@ -16,7 +16,6 @@ class Map:
     def set(self, x, y, value) -> bool:
         if self.is_empty(x, y):
             self.value[self.get_index(x, y)] = value
-            print(self.value)
             return True
 
         return False

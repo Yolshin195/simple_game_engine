@@ -3,7 +3,7 @@
 # ygame is free software: you can redistribute it and/or modify
 # it under the terms of the MIT License as published by the Massachusetts
 # Institute of Technology. See the LICENSE.txt file for more details.
-from ygame.core.color import GREEN, WHITE
+from ygame.core.color import WHITE
 from ygame.core.game import Game
 from ygame.example.game_2048.map import Map
 
