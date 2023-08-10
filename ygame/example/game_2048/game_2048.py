@@ -29,8 +29,11 @@ class Game2048(Game):
         x = self.get_random_number(0, self.width-1)
         y = self.get_random_number(0, self.height-1)
 
-        if not self.map_game.set(x, y, 2):
+        if not self.map_game.set(x, y, 2) and not self.is_game_over():
             return self.random()
+
+    def is_game_over(self) -> True:
+        return None not in self.map_game.value
 
     def draw(self):
         for y in range(self.height):
@@ -38,6 +41,14 @@ class Game2048(Game):
                 self.set_cell(x, y, text=self.map_game.get(x, y, ""), color=WHITE)
 
     def on_key_press(self, char: str, keycode: int):
+        if char == 'r' or char == 'R':
+            self.start()
+            return
+
+        if self.is_game_over():
+            self.show_message("Game over!")
+            return
+
         match keycode:
             case 38:
                 self.map_game.move_up()
