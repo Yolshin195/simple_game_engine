@@ -21,16 +21,41 @@ class Game(ABC):
         random.seed(time.time())
 
     def set_game_engine(self, game_engine: GameEngine):
+        """
+        Связывает игровой движок с текущей игрой.
+        Этот метод вызывается игровым движком
+
+        GameEngineTkinter(SimpleGame()).initialize()
+
+        Args:
+            game_engine (GameEngine): Игровой движок, который будет связан с игрой.
+        """
         self.__game_engine = game_engine
 
     @abstractmethod
     def initialize(self):
-        pass
+        """
+        Абстрактный метод. Инициализирует игру. Должен быть реализован в подклассах.
+        """
 
     def set_title(self, title: str):
+        """
+           Устанавливает заголовок игры.
+
+           Args:
+               title (str): Заголовок игры.
+        """
         self.__game_engine.title = title
 
     def set_screen_size(self, width: int, height: int, cell_size_px=None):
+        """
+        Устанавливает размер экрана игры.
+
+        Args:
+            width (int): Ширина экрана в пикселях.
+            height (int): Высота экрана в пикселях.
+            cell_size_px (Optional[int]): Размер ячейки в пикселях. По умолчанию 100px.
+        """
         self.__game_engine.set_screen_size(width, height, cell_size_px)
 
     def show_grid(self, flag: bool):
@@ -73,4 +98,14 @@ class Game(ABC):
 
     @staticmethod
     def get_random_number(begin: int, end: int) -> int:
+        """
+        Возвращает случайное целое число включительно из заданного диапазона.
+
+        Args:
+            begin (int): Начальное значение диапазона.
+            end (int): Конечное значение диапазона.
+
+        Returns:
+            int: Случайное целое число в диапазоне [begin, end].
+        """
         return random.randint(begin, end)
